@@ -5,7 +5,7 @@ Created on Sun Aug 11 16:27:11 2019
 
 @author: loewi
 """
-
+import itertools
 
 def luckyN(s):
     mylist = []
@@ -19,22 +19,23 @@ def luckyN(s):
     
     long = 0
     res = 0
-    comb = list(itertools.combinations(mylist,2))
-    dp = [0]*len(comb)
+    dp = [0]*len(mylist)
     
-    for i, t in enumerate(comb):
-        a, b = t
+    for i in range(len(mylist)):
+        
+        a, b = mylist[i-1] if i>=1 else mylist[i], mylist[i]
         ls[a] = 'N'
         ls[b] = 'N'
         
         for k, g in itertools.groupby(ls):
             if k == 'N':
                 long = max(len(list(g)), long)
+                
         ls[a] = 'X'
         ls[b] = 'X'       
         dp[i] = long
         
-    res = max(res, dp[i])
+        res = max(res, dp[i])
     
     return res
 
