@@ -16,7 +16,7 @@ def luckyN(s):
         if s[i]!='N':
             mylist.append(i)
 
-    if len(mylist) <2: 
+    if len(mylist) <= 2: 
         return len(s)
     
     res = 0
