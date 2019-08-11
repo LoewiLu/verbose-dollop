@@ -4,6 +4,9 @@
 Created on Sun Aug 11 16:27:11 2019
 
 @author: loewi
+
+一个大写字母的字符串，允许改变最多两个字符（也允许不变或者只变一个），使字符串中所包含的最长的连续的“N”字符串长度最长。
+例：'NNTH'-'NNNN' 4
 """
 import itertools
 
