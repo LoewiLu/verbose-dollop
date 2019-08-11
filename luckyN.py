@@ -15,15 +15,13 @@ def luckyN(s):
     for i in range(len(s)):
         if s[i]!='N':
             mylist.append(i)
-    
-    ls = list(s)
+
     if len(mylist) <2: 
         return len(s)
     
-    long = 0
     res = 0
-    dp = [0]*len(mylist)
-    
+    ls = list(s)
+
     for i in range(len(mylist)):
         
         a, b = mylist[i-1] if i>=1 else mylist[i], mylist[i]
@@ -32,13 +30,10 @@ def luckyN(s):
         
         for k, g in itertools.groupby(ls):
             if k == 'N':
-                long = max(len(list(g)), long)
+                res = max(len(list(g)), res)
                 
         ls[a] = 'X'
-        ls[b] = 'X'       
-        dp[i] = long
-        
-        res = max(res, dp[i])
+        ls[b] = 'X'
     
     return res
 
